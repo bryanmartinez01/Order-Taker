@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.ordertaker.dao.LoginDao;
+import com.ordertaker.entity.User;
 import com.ordertaker.service.LoginService;
 
 public class LoginServiceImpl implements LoginService {
@@ -37,7 +38,10 @@ public class LoginServiceImpl implements LoginService {
 			
 			String inputUserId = loginDao.checkUsername(request.getParameter("userId"));	
 			if(inputUserId != null){
-				
+				User userInfo = loginDao.getUserInfo(user);
+				if(true){
+					
+				}
 			}
 			
 			

@@ -38,17 +38,5 @@
 	WHERE userName = #userName#
 	AND password = #password#
 	</select>
-
-	<procedure id="addMenuQuerry" parameterClass="java.util.Map">
-		BEGIN 
-			INSERT INTO menu_list
-			VALUES(#dishCode#,#dishName#,#dishType#, #price#);
-		END;
-	</procedure>
-	
-	<select id = "getMenuList" resultMap = "getMenuListMap">
-		SELECT dish_code, dish_name, dish_type, price
-		FROM menu_list
-	</select>		
 	
 </sqlMap>

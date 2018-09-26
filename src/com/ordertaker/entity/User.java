@@ -2,48 +2,50 @@ package com.ordertaker.entity;
 
 public class User {
 	
-	private String user_id;
-	private String user_password;
-	private String user_firstName;
-	private String user_lastName;
-	private String user_accessLevel;
-	private String user_email;
+	private String userId;
+	private String userPassword;
+	private String userFirstName;
+	private String userLastName;
+	private String userAccessLevel;
+	private String userEmail;
 	
-	public String getUser_id() {
-		return user_id;
+	public String getUserId() {
+		return userId;
 	}
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
-	public String getUser_password() {
-		return user_password;
+	public String getUserPassword() {
+		return userPassword;
 	}
-	public void setUser_password(String user_password) {
-		this.user_password = user_password;
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
 	}
-	public String getUser_firstName() {
-		return user_firstName;
+	public String getUserFirstName() {
+		return userFirstName;
 	}
-	public void setUser_firstName(String user_firstName) {
-		this.user_firstName = user_firstName;
+	public void setUserFirstName(String userFirstName) {
+		this.userFirstName = userFirstName;
 	}
-	public String getUser_lastName() {
-		return user_lastName;
+	public String getUserLastName() {
+		return userLastName;
 	}
-	public void setUser_lastName(String user_lastName) {
-		this.user_lastName = user_lastName;
+	public void setUserLastName(String userLastName) {
+		this.userLastName = userLastName;
 	}
-	public String getUser_accessLevel() {
-		return user_accessLevel;
+	public String getUserAccessLevel() {
+		return userAccessLevel;
 	}
-	public void setUser_accessLevel(String user_accessLevel) {
-		this.user_accessLevel = user_accessLevel;
+	public void setUserAccessLevel(String userAccessLevel) {
+		this.userAccessLevel = userAccessLevel;
 	}
-	public String getUser_email() {
-		return user_email;
+	public String getUserEmail() {
+		return userEmail;
 	}
-	public void setUser_email(String user_email) {
-		this.user_email = user_email;
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
-
+	
+	
+	
 }
