@@ -30,19 +30,9 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		String page = "";
 		try {
-			loginService.getUserInfo(request);
+			loginService.getLonginInfo(request);
 			switch ((Integer) request.getAttribute("loginStatus")) {
-			case 0:
-				page = "index.jsp";
-				request.setAttribute("systemMessage", "Invalid username and/or password.");
-				break;
-			case 1:
-				response.setStatus(201);
-				if (session.getAttribute("currentUserFN") != null || session.getAttribute("currentUserFN") != "") {
-					session.setAttribute("currentUser", session.getAttribute("currentUserFN"));
-					page = "index.jsp";
-				}
-				break;
+		
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
