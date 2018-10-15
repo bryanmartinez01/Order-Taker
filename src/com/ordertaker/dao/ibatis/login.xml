@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sqlmap-2.dtd">
+<sqlMap namespace="StoreMenu">
+
+	<typeAlias alias="LoginClass" type="com.ordertaker.entity.User"/>
+
+	<resultMap id="getUserMap" class="LoginClass">
+		<result column="user_id" 		property="userId"/>
+		<result column="user_first_name" 	property="userFirstName"/>
+		<result column="user_last_name" 		property="userLastName"/>
+		<result column="user_email" 		property="userEmail"/>	
+		<result column="user_access_level" 		property="userAccessLevel"/>
+		<result column="user_password" 		property="userPassword"/>
+	</resultMap>
+	<resultMap id="getUserNameMap" class="java.lang.String">
+		<result column="user_id" 		property="user_id"/>
+	</resultMap>
+
+	<select id= "getUserId" resultMap="getUserNameMap">
+	SELECT user_id FROM ot_users_tbl 
+	WHERE user_id = #userId#
+	</select>
+	
+	<select id = "getLoginInfo" resultMap = "getUserMap">
+	SELECT *
+	FROM ot_users_tbl
+	WHERE user_id = #userId#
+	AND user_password = #password#
+	</select>
+	
+</sqlMap>

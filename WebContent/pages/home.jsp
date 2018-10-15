@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Home</title>
+<title>Insert title here</title>
 </head>
 <body>
-	
+<h1>This is home!</h1>
+<input type = "button" id = "user" value = "User">
+<input type = "button" id = "admin" value = "Admin">
 </body>
 </html>

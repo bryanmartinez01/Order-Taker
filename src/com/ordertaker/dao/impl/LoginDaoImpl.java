@@ -21,6 +21,7 @@ public class LoginDaoImpl  implements LoginDao{
 
 	@Override
 	public String checkUsername(String userId) throws SQLException {
+		System.out.println("okokDaoImpl");
 		String inputId = (String) this.getSqlMapClient().queryForObject("getUserId", userId);
 		return inputId;
 	}
