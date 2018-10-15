@@ -3,4 +3,5 @@
 
 <sqlMapConfig>
 	<sqlMap resource="com/ordertaker/dao/ibatis/Menu.xml"/>
+	<sqlMap resource="com/ordertaker/dao/ibatis/login.xml"/>
 </sqlMapConfig>

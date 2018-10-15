@@ -32,15 +32,19 @@
 				password : $("#password").val()
 			},
 			success : function(result) {
-				sonsole.log('${logStat}');
-				alert('${logStat}');
+				window.location = contextPath + "/pages/home.jsp";
+			/* 	alert('${logStat}');
 				if ("${logStat}".trim() == "success") {
-					window.location.assign(contextPath + "/pages/home.jsp");
-				} else {
+					window.location = ""(contextPath + "/pages/home.jsp");
+				}  */
+				/* else {
 					alert("mali");
 					$(".sysMessage").html("Invalid username or password!");
-				}
-			}
+				} */
+			},
+			failure: function (response) {
+				$(".sysMessage").html("Invalid username or password!");
+            }
 		});
 	});
 </script>

@@ -29,4 +29,11 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 	<bean class="com.ordertaker.service.impl.MenuServiceImpl" id="menuService" depends-on="menuDao">
 		<property name="menuDao" ref="menuDao"></property>
 	</bean>
+	
+	<bean class="com.ordertaker.dao.impl.LoginDaoImpl" id="loginDao" depends-on="sqlMapClient">
+		<property name="sqlMapClient" ref="sqlMapClient"></property>
+	</bean>
+	<bean class="com.ordertaker.service.impl.LoginServiceImpl" id="getLogin" depends-on="loginDao">
+		<property name="loginDao" ref="loginDao"></property>
+</bean>
 </beans>
