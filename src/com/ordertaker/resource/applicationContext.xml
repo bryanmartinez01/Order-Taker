@@ -23,10 +23,10 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 		<property name="password" value="" />
 	</bean>
 	
-	<bean class="com.ordertaker.dao.impl.LoginDaoImpl" id="loginDao" depends-on="sqlMapClient">
+	<bean class="com.ordertaker.dao.impl.MenuDaoImpl" id="menuDao" depends-on="sqlMapClient">
 		<property name="sqlMapClient" ref="sqlMapClient"></property>
 	</bean>
-	<bean class="com.ordertaker.service.impl.LoginServiceImpl" id="getLogin" depends-on="loginDao">
-		<property name="loginDao" ref="loginDao"></property>
+	<bean class="com.ordertaker.service.impl.MenuServiceImpl" id="menuService" depends-on="menuDao">
+		<property name="menuDao" ref="menuDao"></property>
 	</bean>
 </beans>
