@@ -3,30 +3,44 @@ package com.ordertaker.entity;
 import java.math.BigDecimal;
 
 public class Dish {
-
+	
+	private int dishId;
+	private String dishCode;
 	private String dishName;
-	private BigDecimal dishPrice;
 	private String dishDesc;
+	private BigDecimal dishPrice;
 	private String dishAvailability;
 	private String dishPicture;
 	
+	public int getDishId() {
+		return dishId;
+	}
+	public void setDishId(int dishId) {
+		this.dishId = dishId;
+	}
+	public String getDishCode() {
+		return dishCode;
+	}
+	public void setDishCode(String dishCode) {
+		this.dishCode = dishCode;
+	}
 	public String getDishName() {
 		return dishName;
 	}
 	public void setDishName(String dishName) {
 		this.dishName = dishName;
 	}
-	public BigDecimal getDishPrice() {
-		return dishPrice;
-	}
-	public void setDishPrice(BigDecimal dishPrice) {
-		this.dishPrice = dishPrice;
-	}
 	public String getDishDesc() {
 		return dishDesc;
 	}
 	public void setDishDesc(String dishDesc) {
 		this.dishDesc = dishDesc;
+	}
+	public BigDecimal getDishPrice() {
+		return dishPrice;
+	}
+	public void setDishPrice(BigDecimal dishPrice) {
+		this.dishPrice = dishPrice;
 	}
 	public String getDishAvailability() {
 		return dishAvailability;
@@ -40,6 +54,5 @@ public class Dish {
 	public void setDishPicture(String dishPicture) {
 		this.dishPicture = dishPicture;
 	}
-	
 	
 }

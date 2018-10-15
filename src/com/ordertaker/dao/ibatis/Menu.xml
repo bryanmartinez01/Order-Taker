@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sqlmap-2.dtd">
+<sqlMap namespace="CreateMenu">
+
+	<typeAlias alias="DishClass" type="com.ordertaker.entity.Dish"/>
+	
+	<resultMap id="getDishesMap" class="DishClass">
+		<result column="dish_id" 			property="dishId"/>
+		<result column="dish_code" 			property="dishCode"/>
+		<result column="dish_name" 			property="dishName"/>
+		<result column="dish_desc" 			property="dishDesc"/>
+		<result column="dish_price" 		property="dishPrice"/>
+		<result column="dish_availability" 	property="dishAvailability"/>
+		<result column="dish_picture" 		property="dishPicture"/>	
+	</resultMap>
+	
+	<select id="getDishes" resultMap="getDishesMap">
+		SELECT *
+		FROM ot_dishes_tbl
+	</select>
+	
+	<select id="getDishesByDay" resultMap="getDishesMap">
+		SELECT *
+		FROM ot_dishes_tbl
+		WHERE dish_availability = #day#
+	</select>
+	
+</sqlMap>
