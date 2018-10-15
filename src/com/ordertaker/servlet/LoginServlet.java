@@ -25,17 +25,23 @@ public class LoginServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		@SuppressWarnings("resource")
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
-				"/com/store/resource/applicationContext.xml");
+				"/com/ordertaker/resource/applicationContext.xml");
 		LoginService loginService = (LoginService) applicationContext.getBean("getLogin");
-		HttpSession session = request.getSession();
 		String page = "";
 		try {
 			loginService.getLonginInfo(request);
-			switch ((Integer) request.getAttribute("loginStatus")) {
-		
+			if(request.getAttribute("status").equals("ok")){
+				request.setAttribute("logStat", "success");
+				System.out.println("ok in");
+				page = "pages/home.jsp";
+			}else{
+				request.setAttribute("logStat", "failed");
+				page = "login.jsp";
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			page = "login.jsp";
+			request.setAttribute("systemMessage", "Internal error occur!");
 		} finally {
 			RequestDispatcher rd = request.getRequestDispatcher(page);
 			rd.forward(request, response);

@@ -12,43 +12,46 @@ import com.ordertaker.entity.User;
 import com.ordertaker.service.LoginService;
 
 public class LoginServiceImpl implements LoginService {
-	
+
 	private LoginDao loginDao;
-	
 
 	public LoginDao getLoginDao() {
 		return loginDao;
 	}
 
-
 	public void setLoginDao(LoginDao loginDao) {
 		this.loginDao = loginDao;
 	}
-
 
 	@Override
 	public void getLonginInfo(HttpServletRequest request) throws SQLException {
 		HttpSession session = request.getSession();
 		Map<String, Object> user = new HashMap<>();
 		user.put("userId", request.getParameter("userId"));
-		user.put("password", request.getParameter("password"));	
-		
-		
+		user.put("password", request.getParameter("password"));
+		System.out.println(request.getParameter("userId"));
+		System.out.println(request.getParameter("password"));
 		try {
-			
-			String inputUserId = loginDao.checkUsername(request.getParameter("userId"));	
-			if(inputUserId != null){
+			System.out.println("servImpl");
+			String inputUserId = loginDao.checkUsername(request.getParameter("userId"));
+			if (inputUserId != null) {
 				User userInfo = loginDao.getUserInfo(user);
-				if(true){
-					
+				System.out.println(user.get("password").toString());
+				System.out.println(userInfo.getUserPassword());
+				if (userInfo.getUserPassword().equalsIgnoreCase(user.get("password").toString())) {
+					request.setAttribute("status", "ok");
+					session.setAttribute("firstName", userInfo.getUserFirstName());
+					session.setAttribute("lastName", userInfo.getUserLastName());
+					session.setAttribute("accesLevel", userInfo.getUserAccessLevel());
+					session.setAttribute("emailAddress", userInfo.getUserEmail());
+				} else {
+					request.setAttribute("status", "fail");
+					request.setAttribute("systemMessage", "Invalid Username or Password!");
 				}
 			}
-			
-			
 		} catch (Exception e) {
 			session.setAttribute("systemError", "Internal error occur while logging in! Try again later.");
 			e.printStackTrace();
 		}
 	}
-
 }
