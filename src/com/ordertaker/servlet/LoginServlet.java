@@ -27,20 +27,16 @@ public class LoginServlet extends HttpServlet {
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
 				"/com/ordertaker/resource/applicationContext.xml");
 		LoginService loginService = (LoginService) applicationContext.getBean("getLogin");
-		String page = "";
+		String page = "login.jsp";
 		try {
 			loginService.getLonginInfo(request);
 			if(request.getAttribute("status").equals("ok")){
 				request.setAttribute("logStat", "success");
-				System.out.println("ok in");
-				page = "pages/home.jsp";
 			}else{
 				request.setAttribute("logStat", "failed");
-				page = "login.jsp";
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			page = "login.jsp";
 			request.setAttribute("systemMessage", "Internal error occur!");
 		} finally {
 			RequestDispatcher rd = request.getRequestDispatcher(page);

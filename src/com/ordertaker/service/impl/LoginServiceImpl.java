@@ -25,6 +25,7 @@ public class LoginServiceImpl implements LoginService {
 
 	@Override
 	public void getLonginInfo(HttpServletRequest request) throws SQLException {
+		String error = "";
 		HttpSession session = request.getSession();
 		Map<String, Object> user = new HashMap<>();
 		user.put("userId", request.getParameter("userId"));
@@ -37,7 +38,7 @@ public class LoginServiceImpl implements LoginService {
 			if (inputUserId != null) {
 				User userInfo = loginDao.getUserInfo(user);
 				System.out.println(user.get("password").toString());
-				System.out.println(userInfo.getUserPassword());
+
 				if (userInfo.getUserPassword().equalsIgnoreCase(user.get("password").toString())) {
 					request.setAttribute("status", "ok");
 					session.setAttribute("firstName", userInfo.getUserFirstName());
@@ -50,8 +51,10 @@ public class LoginServiceImpl implements LoginService {
 				}
 			}
 		} catch (Exception e) {
-			session.setAttribute("systemError", "Internal error occur while logging in! Try again later.");
+			 error = "Internal error occur while logging in! Try again later.";
 			e.printStackTrace();
+		}finally{
+			session.setAttribute("systemError", error);
 		}
 	}
 }
